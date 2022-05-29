@@ -1,0 +1,45 @@
+
+POST:http://localhost:8080/api/user/create
+{
+ "username":"Adekunle"
+ }
+
+POST:http://localhost:8080/api/cart/addToCart
+{
+    "username":"Adekunle",
+    "itemId":1,
+    "quantity":1
+}
+
+
+POST:http://localhost:8080/api/order/submit/Adekunle
+ it gives result similar to the above
+
+ AFTER ADDING JWT AUTHENTICATION
+ POST:http://localhost:8080/api/user/create
+ {
+     "username":"Adekunle",
+     "password":"abcdefg",
+     "confirmPassword":"abcdefg"
+
+ }
+ POST:http://localhost:8080/login
+ {
+ "username":"Adekunle",
+     "password":"abcdefg"
+ }
+ Note: After Succesfully login check the Header:
+ copy the Authorization which is the JWT Token
+ Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZGVrdW5sZSIsImV4cCI6MTY1NDM5MDQ2NX0.ljSNZAHNjBrOt2_5R0flUzxmQLymhOIBORoaGWAuairtiQM4A9idCyJNu_nm1TFDFcvqeFmhlLkRjM0K2yUpPQ
+
+FOR SUBSEQUENT POSTING we had the JWT token to the head of the request AS:
+
+key: Authorization
+Value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZGVrdW5sZSIsImV4cCI6MTY1NDM5MDQ2NX0.ljSNZAHNjBrOt2_5R0flUzxmQLymhOIBORoaGWAuairtiQM4A9idCyJNu_nm1TFDFcvqeFmhlLkRjM0K2yUpPQ
+POST:http://localhost:8080/api/user/create
+ {
+     "username":"Adekunle",
+     "password":"abcdefg",
+     "confirmPassword":"abcdefg"
+
+ }
